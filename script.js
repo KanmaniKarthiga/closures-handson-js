@@ -1,3 +1,21 @@
+// Q1. Print the output
+function counter(){
+    var counter = 0;
+
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+
+    return IncreaseCounter;
+}
+
+var counter = counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+// Output is 1,2,3,4
+
 // Q2. Guess the output
 let count = 0;
 (function () {
@@ -31,12 +49,12 @@ outer(30)
 function outer1(){
     var count = 0
     function inner1(){
-        return count += 1
+        console.log(count += 1) 
     }
-    return inner1
+    inner1()
 }
-var result = outer1()
-console.log(outer1())
+outer1()
+outer1()
 
 // Q6."Print Output"
 var a = 12;

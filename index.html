@@ -11,6 +11,23 @@
 </head>
 <body>
     <h1>CLOSURES HANDS-ON</h1>
+    <p class="ques">Q1. Print the output</p>
+    <pre>
+        function counter(){
+            var counter = 0;
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+            return IncreaseCounter;
+        }
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());
+    </pre>
+    <p>The output will be poped up at the browser as <span>1 then 2 then 3 and then 4.</span></p>
+
     <p class="ques">Q2. Guess the output</p>
     <pre>
         let count = 0;
@@ -59,12 +76,12 @@
         function outer1(){
             var count = 0
             function inner1(){
-                return count += 1
+                console.log(count += 1) 
             }
-            return inner1
+            inner1()
         }
-        var result = outer1()
-        console.log(outer1())
+        outer1()
+        outer1()
     </pre>
 
     <p class="ques">Q6. "Print Output"</p> 
