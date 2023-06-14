@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures Handson</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <h1>CLOSURES HANDS-ON</h1>
+    <p class="ques">Q2. Guess the output</p>
+    <pre>
+        let count = 0;
+        (function () {
+            if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+            }
+            console.log(count); // What is logged?
+        })();
+    </pre>
+    <p>The output is <span>1, 0</span> For the inner console.log, the count will be assigned as 1 since the condition is
+        true. And for the outer console.log, it will check for the variable at the global scope since this is outside
+        the block scope. So, the value will be 0. </p>
+
+    <p class="ques">Q3. Guess the output</p>
+    <pre>
+        "for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+    </pre>
+    <p>The output is 3 3 3. This three times 3 is printed simultaneously after 1second. It is because, for loop will
+        have i=0, 0<3 (true), timeout is called, same way it is done till i=3, 3 < 3 (false) so execution stopped. Here,
+        the final value of i is 3 and thus it is outputed for a timeout of one second three times since it is called
+        thrice.
+    </p>
+
+    <p class="ques">Q4. Write a code to calculate area of a rectangle using inner function. In this case outer function
+            should accept parameter length and inner function should accept parameter breadth.</p>
+    <pre class="ans">
+        function outer(length){
+            function inner(breadth){
+                console.log(length*breadth)
+            }
+            inner(20)
+        }
+        outer(30)
+    </pre>
+    <p>The output will be <span>600</span></p>
+
+    <p class="ques">Q5. Take a variable in outer function and create an inner function to increase the counter every time it
+        is called</p>
+    <pre class="ans">
+        function outer1(){
+            var count = 0
+            function inner1(){
+                return count += 1
+            }
+            return inner1
+        }
+        var result = outer1()
+        console.log(outer1())
+    </pre>
+
+    <p class="ques">Q6. "Print Output"</p> 
+    <pre>
+        var a = 12;
+        (function () {
+          alert(a);
+        })();"
+    </pre>
+    <p>The output is <span>12</span> and this is poped up in the browser since alert is used.</p>
+
+    <p class="ques">Q7. Print the output</p>
+    <pre>
+        var a = 10;
+        var x = (function () {
+            var a = 12;
+            return function () {
+            alert(a);
+            };
+        })();
+        x();
+    </pre>
+    <p>The output is <span>12</span> and this also gets poped up at the browser. Here, the function is stored
+        inside a variable and returned using another function. This return function will check for the value in
+         the parent function and will access that variable value.</p>
+
+    <p class="ques">Q8. "Print Output"</p>
+    <pre>
+        var globalVar = "xyz"
+
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+        
+            (function innerFunc(innerArg) {
+                var innerVar = 'b';
+        
+            console.log(
+                "outerArg = "+ outerArg + "\n" +
+                "innerArg = " + innerArg + "\n" +
+                "outerVar = " + outerVar + "\n" +
+                "innerVar = " + innerVar + "\n" +
+                "globalVar = " + globalVar);
+            
+            })(456);
+        })(123);
+    </pre>
+     <script src="./script.js"></script>
+</body>
+
+</html>
